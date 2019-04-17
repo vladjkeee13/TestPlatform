@@ -1,0 +1,28 @@
+p.test-name {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+form {
+    margin-top: 75px;
+    text-align: center;
+}
+
+h3.message {
+    margin-top: 75px;
+    text-align: center;
+}
+
+h3.result {
+    margin-top: 75px;
+    text-align: center;
+}
+
+a.link {
+    margin-left: 450px;
+}
+
+a.link1 {
+    margin-left: 160px;
+}

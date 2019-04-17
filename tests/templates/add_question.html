@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block include_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tests/css/add_question_style.css' %}">
+{% endblock include_css %}
+
+
+{% block title %}
+    Add-Question
+{% endblock title %}
+
+
+{% block content %}
+
+    <h3 class="text-center text-success"> Вопрос {{ test.question.all|length|add:1 }}/5 </h3>
+
+
+        {% if check_all_answers_and_correct_answer_and_question %}
+            {{ form.question.errors }} <!--(все 3 ошибки)-->
+        {% elif check_all_answers_and_correct_answer %}
+            {{ form.current_answer.errors }} <!--(2 ошибки: ответ и ответы)-->
+        {% elif form.question.errors and form.current_answer.errors %}
+            {{ form.question.errors }} <!--(2 ошибки вопрос и ответ)-->
+        {% elif check_correct_answer_and_question %}
+            {{ form.question.errors }} <!--(2 ошибки: вопрос и ответы)-->
+        {% elif form.question.errors %}
+            {{ form.question.errors }} <!--(1 ошибка - вопрос)-->
+        {% elif form.current_answer.errors %}
+            {{ form.current_answer.errors }} <!--(1 ошибка - ответ)-->
+        {% elif form.answer1.errors or form.answer2.errors or form.answer3.errors or form.answer4.errors %}
+            {% if form.answer1.errors %}
+                {{ form.answer1.errors }} <!--(1 ошибка - ответы(1))-->
+            {% elif form.answer2.errors %}
+                {{ form.answer2.errors }} <!--(1 ошибка - ответы(2))-->
+            {% elif form.answer3.errors %}
+                {{ form.answer3.errors }} <!--(1 ошибка - ответы(3))-->
+            {% elif form.answer4.errors %}
+                {{ form.answer4.errors }} <!--(1 ошибка - ответы(4))-->
+            {% endif %}
+        {% endif %}
+
+    <div class="container col-md-4 col-md-offset-4">
+
+        <form role="form" method="post"> {% csrf_token %}
+            <div class="form-group" >
+                <label for="id_question"> Question </label>
+                <input type="text" class="form-control" name="question" id="id_question">
+            </div>
+            <div class="form-group" >
+                <label for="id_current_answer"> Current Answer </label>
+                <input type="text" class="form-control" name="current_answer" id="id_current_answer">
+            </div>
+            <div class="form-group" >
+                <label for="id_answer1"> Answer1 </label>
+                <input type="text" class="form-control" name="answer1" id="id_answer1">
+            </div>
+            <div class="form-group" >
+                <label for="id_answer2"> Answer2 </label>
+                <input type="text" class="form-control" name="answer2" id="id_answer2">
+            </div>
+            <div class="form-group" >
+                <label for="id_answer3"> Answer3 </label>
+                <input type="text" class="form-control" name="answer3" id="id_answer3">
+            </div>
+            <div class="form-group" >
+                <label for="id_answer4"> Answer4 </label>
+                <input type="text" class="form-control" name="answer4" id="id_answer4">
+            </div>
+
+            <input type="submit" class="btn btn-md btn-success btn-block" value="Добавить вопрос"/>
+        </form>
+
+    </div>
+
+
+{% endblock content %}

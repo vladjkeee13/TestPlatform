@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+{% load tests_tag %}
+
+
+{% block include_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tests/css/my_account_style.css' %}">
+{% endblock include_css %}
+
+
+{% block title %}
+    My Account
+{% endblock title %}
+
+
+{% block content %}
+
+    <table>
+        <tr>
+            <th colspan="2" style="text-align: center"> {{ user.username }}</th>
+        </tr>
+        <tr>
+            <td colspan="2"> <img class="img" src="/media/{{ user.avatar }}" alt="Img3"></td>
+        </tr>
+        <tr>
+            <th> First_name: </th>
+            <th> Last name: </th>
+        </tr>
+        <tr>
+            <td> {{ user.first_name }} </td>
+            <td> {{ user.last_name }} </td>
+        </tr>
+        <tr>
+            <th colspan="2"> Personal information: </th>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="3"> {{ user.personal_information }} </td>
+        </tr>
+    </table>
+
+{% endblock content %}

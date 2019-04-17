@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+{% load tests_tag %}
+
+
+{% block include_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tests/css/test_style.css' %}">
+{% endblock include_css %}
+
+
+{% block title %}
+    {{ test }}
+{% endblock title %}
+
+
+{% block content %}
+
+    <table class="table">
+        <tr class="text-center">
+            <td colspan="2"> <h2> Тест: {{ test }} </h2> </td>
+        </tr>
+        <tr class="text-center">
+            <td colspan="2"> <h2> {{ test.description }} </h2> </td>
+        </tr>
+        <tr class="text-center">
+            {% if test.number_of_passes > 0 %}
+                {% if not test.number_of_passes|in_list:'2, 3, 4, 22, 23, 24'  %}
+                    <td colspan="2"> <h2> Данный тест был пройдет уже {{ test.number_of_passes }} раз.</h2> </td>
+                {% else %}
+                    <td colspan="2"> <h2> Данный тест был пройдет уже {{ test.number_of_passes }} раза.</h2> </td>
+                {% endif %}
+            {% else %}
+                <td colspan="2"> <h2> Данный тест еще не проходили, Вы будете первым! :) </h2> </td>
+            {% endif %}
+        </tr>
+        <tr class="text-center">
+            {% if result %}
+                {% if result.test == test and result.author == user %}
+                    <td> <h3 class="message"> Вы уже проходили этот тест!</h3> </td>
+                    <td> <h3 class="result"> Ваш результат: {{ result.mark }}/{{ result.test.question.all|length }} = {{ percent }}% </h3> </td>
+                {% else %}
+                    <td colspan="2">
+                        <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
+                    </td>
+                {% endif %}
+            {% else %}
+                <td colspan="2">
+                    <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
+                </td>
+            {% endif %}
+        </tr>
+    </table>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Comments:</h3>
+        </div><!-- /col-sm-12 -->
+    </div><!-- /row -->
+
+    {% if test.comment_set.all.count > 0 %}
+
+        {% for comment in test.comment_set.all %}
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="thumbnail">
+                            <img class="img3" src="/media/{{ comment.author.avatar }}" alt="Img3">
+                        </div><!-- /thumbnail -->
+                    </div><!-- /col-sm-1 -->
+
+                    <div class="col-sm-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <strong>{{ comment.author }}</strong> <span class="text-muted">commented {{ comment.date }}</span>
+                            </div>
+                            <div class="panel-body">
+                                {{ comment.text }}
+                            </div><!-- /panel-body -->
+                        </div><!-- /panel panel-default -->
+                    </div><!-- /col-sm-5 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        {% endfor %}
+        <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+    {% else %}
+        <h4> У данного теста еще нет комментариев! </h4>
+        <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link1 btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+    {% endif %}
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block include_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tests/css/add_test_style.css' %}">
+{% endblock include_css %}
+
+
+{% block title %}
+    Add-Test
+{% endblock title %}
+
+
+{% block content %}
+
+
+    <div class="container col-md-4 col-md-offset-4">
+
+        <form role="form" method="post"> {% csrf_token %}
+            {% if form.title.errors %}
+                {{ form.title.errors }}
+            {% endif %}
+            <div class="form-group" >
+                <label for="test_title"> Title </label>
+                <input type="text" class="form-control" name="title" id="test_title">
+            </div>
+
+            <div class="form-group" >
+                <label for="test_description"> Description </label>
+                <textarea cols="40" rows="10" class="form-control" name="description" id="test_description"> </textarea>
+            </div>
+
+
+            <input type="submit" class="btn btn-md btn-success btn-block" value="Добавить вопросы"/>
+        </form>
+
+    </div>
+
+{% endblock content %}

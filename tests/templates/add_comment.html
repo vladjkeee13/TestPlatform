@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+{% load tests_tag %}
+
+
+{% block include_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tests/css/add_comment_style.css' %}">
+{% endblock include_css %}
+
+
+{% block title %}
+    Add comment to {{ test }}
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="container col-md-5">
+
+        <form role="form" method="post"> {% csrf_token %}
+            <div class="form-group" >
+                <label for="comment_text"> Comment </label>
+                <textarea cols="40" rows="10" class="form-control" name="text" id="comment_text" placeholder="Написать коментарий"> </textarea>
+            </div>
+
+            <input type="submit" class="btn btn-success" value="Add comment"/>
+        </form>
+
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+table {
+    margin-top: 50px;
+    margin-left: 510px;
+}
+
+input.creat-test {
+    margin-top: 50px;
+    margin-left: 625px;
+}
+
+tr.spaceUnder>th {
+  padding-bottom: 10px;
+}
+
+
+ul {
+    color: red;
+    text-align: center;
+    list-style-type: none;
+}
+
