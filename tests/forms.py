@@ -204,13 +204,13 @@ class RegistrationForm(forms.ModelForm):
         email = cleaned_data['email']
 
         if MyUser.objects.filter(username=username).exists():
-            raise forms.ValidationError('Пользователь с таким именем уже зарегестрирован!')
+            self.add_error('username', 'Пользователь с таким именем уже зарегестрирован!')
 
         if password != password_check:
-            raise forms.ValidationError('Пароли не совпадают!')
+            self.add_error('password', 'Пароли не совпадают!')
 
         if MyUser.objects.filter(email=email).exists():
-            raise forms.ValidationError('Пользователь с таким емайлом уже зарегестрирован!')
+            self.add_error('email', 'Пользователь с таким емайлом уже зарегестрирован!')
 
         return cleaned_data
 
@@ -244,7 +244,7 @@ class RegistrationForm(forms.ModelForm):
 class LoginForm(forms.Form):
 
     username = forms.CharField(required=True)
-    password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}))
+    password = forms.CharField(required=True, widget=forms.PasswordInput())
 
     def clean(self):
 
@@ -254,11 +254,14 @@ class LoginForm(forms.Form):
         password = cleaned_data['password']
 
         if not MyUser.objects.filter(username=username).exists():
-            raise forms.ValidationError('Пользователь с таким именем не зарегестрирован!')
+            self.add_error('username', 'Пользователь с таким именем не зарегестрирован!')
 
-        user = MyUser.objects.get(username=username)
+        try:
+            user = MyUser.objects.get(username=username)
+        except:
+            user = None
 
         if user and not user.check_password(password):
-            raise forms.ValidationError('Не верный пароль!')
+            self.add_error('password', 'Не верный пароль!')
 
         return cleaned_data

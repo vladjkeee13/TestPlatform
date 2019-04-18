@@ -22,7 +22,11 @@
             <th colspan="2" style="text-align: center"> {{ user.username }}</th>
         </tr>
         <tr>
-            <td colspan="2"> <img class="img" src="/media/{{ user.avatar }}" alt="Img3"></td>
+            {% if user.avatar %}
+                <td colspan="2"> <img class="img" src="/media/{{ user.avatar }}" alt="Img3"> </td>
+            {% else %}
+                <td colspan="2"> Вы не выбрали фотографию.. </td>
+            {% endif %}
         </tr>
         <tr>
             <th> First_name: </th>
@@ -36,7 +40,11 @@
             <th colspan="2"> Personal information: </th>
         </tr>
         <tr>
-            <td colspan="2" rowspan="3"> {{ user.personal_information }} </td>
+            {% if user.personal_information %}
+                <td colspan="2" rowspan="3"> {{ user.personal_information }} </td>
+            {% else %}
+                <td colspan="2"> Вы не указали личную информацию.. </td>
+            {% endif %}
         </tr>
     </table>
 
