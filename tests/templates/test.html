@@ -41,14 +41,27 @@
                     <td> <h3 class="message"> Вы уже проходили этот тест!</h3> </td>
                     <td> <h3 class="result"> Ваш результат: {{ result.mark }}/{{ result.test.question.all|length }} = {{ percent }}% </h3> </td>
                 {% else %}
+                    {% if request.user.is_authenticated %}
+                        <td colspan="2">
+                            <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
+                        </td>
+                    {% else %}
+                        <td colspan="2">
+                            Чтобы пройти тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                        </td>
+                    {% endif %}
+
+                {% endif %}
+            {% else %}
+                {% if request.user.is_authenticated %}
                     <td colspan="2">
                         <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
                     </td>
+                {% else %}
+                    <td colspan="2">
+                        Чтобы пройти тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                    </td>
                 {% endif %}
-            {% else %}
-                <td colspan="2">
-                    <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
-                </td>
             {% endif %}
         </tr>
     </table>
@@ -84,10 +97,17 @@
                 </div><!-- /row -->
             </div><!-- /container -->
         {% endfor %}
-        <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+        {% else %}
+            Чтобы добавить комментарий, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+        {% endif %}
     {% else %}
         <h4> У данного теста еще нет комментариев! </h4>
-        <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link1 btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
-    {% endif %}
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link1 btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+        {% else %}
+            Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+        {% endif %}    {% endif %}
 
 {% endblock content %}
