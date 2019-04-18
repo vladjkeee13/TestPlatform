@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="044b1728-7585-4fcd-adfa-d2fc9d03c1b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/home_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/test.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/templates/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="94" column="85" selection-start-line="94" selection-start-column="85" selection-end-line="94" selection-end-column="85" />
+            <state relative-caret-position="244">
+              <caret line="109" selection-start-line="109" selection-end-line="110" />
             </state>
           </provider>
         </entry>
@@ -224,22 +222,21 @@
       <workItem from="1555323168233" duration="62719000" />
       <workItem from="1555496740917" duration="213000" />
       <workItem from="1555497278714" duration="22428000" />
-      <workItem from="1555583711693" duration="256000" />
+      <workItem from="1555583711693" duration="842000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271466000" />
+    <option name="totallyTimeSpent" value="272052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16201118" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16201118" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.29967427" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.29967427" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32954547" />
@@ -549,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="94" column="85" selection-start-line="94" selection-start-column="85" selection-end-line="94" selection-end-column="85" />
+        <state relative-caret-position="244">
+          <caret line="109" selection-start-line="109" selection-end-line="110" />
         </state>
       </provider>
     </entry>

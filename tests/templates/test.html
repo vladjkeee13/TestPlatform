@@ -107,7 +107,7 @@
         {% if request.user.is_authenticated %}
             <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link1 btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
         {% else %}
-            Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+            Чтобы добавить комментарий, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
         {% endif %}    {% endif %}
 
 {% endblock content %}
