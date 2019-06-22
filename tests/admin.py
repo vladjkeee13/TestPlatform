@@ -1,19 +1,46 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from nested_admin.nested import NestedTabularInline, NestedModelAdmin
 
 from tests.models import Test, Question, Answer, Result, Comment, MyUser
 
 
-class TestAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author' ,'date')
+class AnswerInline(NestedTabularInline):
+    model = Answer
+
+    def get_extra(self, request, obj=None, **kwargs):
+        if obj:
+            if obj.answer_set.count():
+                extra = 4 - obj.answer_set.count()
+            else:
+                extra = 4
+        else:
+            extra = 4
+        return extra
 
 
-class AnswerAdmin(admin.ModelAdmin):
-    list_display = ('answer_text', 'question')
+class QuestionInline(NestedTabularInline):
+    model = Question
+
+    def get_extra(self, request, obj=None, **kwargs):
+        if obj:
+            if obj.question_set.count():
+                extra = 5 - obj.question_set.count()
+            else:
+                extra = 5
+        else:
+            extra = 5
+        return extra
+
+    inlines = [AnswerInline, ]
 
 
-class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question_text', 'correct_answer')
+class TestAdmin(NestedModelAdmin):
+    list_display = ('title', 'author', 'date')
+    fieldsets = [
+        ('Test', {'fields': ['title', 'author', 'description']}),
+    ]
+    inlines = [QuestionInline, ]
 
 
 class ResultAdmin(admin.ModelAdmin):
@@ -27,6 +54,8 @@ class CommentAdmin(admin.ModelAdmin):
 class ResultInline(admin.TabularInline):
     model = Result
     readonly_fields = ('test', 'mark', 'date')
+    exclude = ('answer', )
+    extra = 0
 
 
 class MyUserAdmin(admin.ModelAdmin):
@@ -43,8 +72,6 @@ class MyUserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Test, TestAdmin)
-admin.site.register(Question, QuestionAdmin)
-admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Result, ResultAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(MyUser, MyUserAdmin)

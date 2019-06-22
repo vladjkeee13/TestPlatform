@@ -13,7 +13,6 @@
     Test Platform
 {% endblock title %}
 
-
 {% block content %}
 
     <div class="container-fluid">
@@ -23,30 +22,31 @@
                     <fieldset>
                         <div class="form-group col-md-2">
                             <label for="test_title"> Поиск по имени </label>
-                            <input type="text" class="form-control" name="title" id="test_title" placeholder="Title">
+                            <input type="text" class="form-control" name="title" id="test_title" placeholder="Title" value="{{ form.title.value|default_if_none:'' }}">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="id_date">Сортировать по дате:</label>
                             <select class="form-control" name="date" id="sel">
                                 {% for value, key in form.fields.date.choices %}
                                     <option value="{{ value }}"
-                                        {% if form.initial.date == value %}
+                                        {% if form.date.value == value %}
                                             selected
                                         {% endif %}>
-                                            {{ key }}
+                                        {{ key }}
                                     </option>
                                 {% endfor %}
                             </select>
                         </div>
+
                         <div class="form-group col-md-3">
                             <label for="id_passed">Сортировать по пройденным:</label>
                             <select class="form-control" name="passed" id="sel1">
                                 {% for value, key in form.fields.passed.choices %}
                                     <option value="{{ value }}"
-                                        {% if form.initial.passed == value %}
+                                        {% if form.passed.value == value %}
                                             selected
                                         {% endif %}>
-                                            {{ key }}
+                                        {{ key }}
                                     </option>
                                 {% endfor %}
                             </select>
@@ -61,27 +61,50 @@
             </div>
         </div>
 
-    <h2 class="text-center text-primary"> Выберите тест: </h2>
+    {% if object_list %}
 
-    <div class="container-fluid">
-        <div class="raw">
-            <div class="col-md-6 col-md-offset-3">
-                <ul class="list-group">
-                    {% for test in object_list %}
-                        <li class="list-group-item">
-                            <a class="test" href="{% url 'tests:test' test_title=test.title %}"> {{ test }} </a>
-                            <span class="badge"> {{ test.number_of_passes }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
+        <h2 class="text-center text-primary"> Выберите тест: </h2>
+
+        <div class="container-fluid">
+            <div class="raw">
+                <div class="col-md-6 col-md-offset-3">
+                    <ul class="list-group">
+                        {% for test in object_list %}
+                            <li class="list-group-item">
+                                <a class="test" href="{% url 'tests:test' test_title=test.title %}"> {{ test }} </a>
+                                <span class="badge"> {{ test.result_set.all.count }} </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if request.user.is_authenticated %}
+                        <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Добавить тест </a><br>
+                    {% else %}
+                        Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    {% elif not object_list and form.title.value %}
+        <h2 class="text-center text-danger"> Теста с таким именем нет! </h2>
+    {% else %}
+
+        <h2 class="text-center text-danger"> Ни один тест еще не был создан! </h2>
+
+        <div class="container-fluid">
+            <div class="raw">
                 {% if request.user.is_authenticated %}
-                    <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Добавить тест </a><br>
+                    <div class="col-md-6 col-md-offset-5">
+                        <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Добавить тест </a><br>
+                    </div>
                 {% else %}
-                    Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                    <div class="col-md-6 col-md-offset-4">
+                        Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                    </div>
                 {% endif %}
             </div>
         </div>
-    </div>
 
+    {% endif %}
 
 {% endblock content %}

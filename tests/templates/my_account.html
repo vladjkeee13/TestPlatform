@@ -17,18 +17,18 @@
 
 {% block content %}
 
-    <table>
+    <table border="1px black" style="margin-left: 500px">
         <tr>
             <th colspan="2" style="text-align: center"> {{ user.username }}</th>
         </tr>
         <tr>
             {% if user.avatar %}
-                <td colspan="2"> <img class="img" src="/media/{{ user.avatar }}" alt="Img3"> </td>
+                <td colspan="2" style="text-align: center"> <img class="img" src="/media/{{ user.avatar }}" alt="Img3"> </td>
             {% else %}
                 <td colspan="2"> Вы не выбрали фотографию.. </td>
             {% endif %}
         </tr>
-        <tr>
+        <tr style="margin-left: 50px">
             <th> First_name: </th>
             <th> Last name: </th>
         </tr>

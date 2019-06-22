@@ -6,15 +6,15 @@ from tests.models import Test, Question, Answer, Comment, MyUser
 class SearchForm(forms.Form):
 
     DATE_CHOICES = (
-        (0, '-----------------'),
-        (1, 'Сортировать по дате добавления'),
-        (2, 'Сортировать в обратном порядке')
+        ('0', '-----------------'),
+        ('1', 'Сортировать по дате добавления'),
+        ('2', 'Сортировать в обратном порядке')
     )
 
     PASSED_CHOICES = (
-        (0, '-----------------'),
-        (1, 'Пройденные'),
-        (2, 'Не пройденные')
+        ('0', '-----------------'),
+        ('1', 'Пройденные'),
+        ('2', 'Не пройденные')
     )
 
     title = forms.CharField(required=False)
@@ -38,10 +38,11 @@ class SearchForm(forms.Form):
 
     def _filter_by_passed(self, queryset, user):
 
-        if int(self.cleaned_data['passed']) == 1:
-            queryset = queryset.filter(result__author=user)
-        elif int(self.cleaned_data['passed']) == 2:
-            queryset = queryset.all().exclude(result__author=user)
+        if user.is_authenticated:
+            if int(self.cleaned_data['passed']) == 1:
+                queryset = queryset.filter(result__author=user)
+            elif int(self.cleaned_data['passed']) == 2:
+                queryset = queryset.all().exclude(result__author=user)
 
         return queryset
 
@@ -77,7 +78,7 @@ class AddTestForm(forms.ModelForm):
 
     def save(self, *args, **kwargs):
 
-        user = kwargs.pop('user')
+        user = kwargs.get('user')
         test = super().save(commit=False)
         test.author = user
         test.save()
@@ -103,7 +104,7 @@ class AddQuestionForm(forms.Form):
 
         question = self.cleaned_data['question']
 
-        for quest in self.test.question.all():
+        for quest in self.test.question_set.all():
             if question == quest.question_text:
                 raise forms.ValidationError("Вопрос с таким именем уже существует!")
 
@@ -113,33 +114,29 @@ class AddQuestionForm(forms.Form):
 
         cleaned_data = self.cleaned_data
 
-        dict_of_answer = {
-            'answer1': cleaned_data['answer1'],
-            'answer2': cleaned_data['answer2'],
-            'answer3': cleaned_data['answer3'],
-            'answer4': cleaned_data['answer4']
-        }
+        if cleaned_data:
+            dict_of_answer = {
+                'answer1': cleaned_data['answer1'],
+                'answer2': cleaned_data['answer2'],
+                'answer3': cleaned_data['answer3'],
+                'answer4': cleaned_data['answer4']
+            }
 
-        if cleaned_data['current_answer'] not in dict_of_answer.values():
-            self.add_error('current_answer', 'Введите правильный ответ!')
+            if cleaned_data['current_answer'] not in dict_of_answer.values():
+                self.add_error('current_answer', 'Введите правильный ответ!')
 
-        for answer in dict_of_answer:
+            for answer in dict_of_answer:
 
-            new_answer_dict = dict_of_answer.copy()
-            new_answer_dict.pop(answer)
+                new_answer_dict = dict_of_answer.copy()
+                new_answer_dict.pop(answer)
 
-            for a in new_answer_dict:
-                if dict_of_answer[answer] == new_answer_dict[a]:
-                    self.add_error(answer, 'Вы ввели несколько одинаковых ответов!')
+                for a in new_answer_dict:
+                    if dict_of_answer[answer] == new_answer_dict[a]:
+                        self.add_error(answer, 'Вы ввели несколько одинаковых ответов!')
 
         return cleaned_data
 
     def save(self, test):
-
-        question = Question.objects.create(
-            question_text=self.cleaned_data['question'],
-            correct_answer=self.cleaned_data['current_answer']
-        )
 
         dict_of_answers = [
             self.cleaned_data['answer1'],
@@ -148,10 +145,14 @@ class AddQuestionForm(forms.Form):
             self.cleaned_data['answer4']
         ]
 
-        for answer in dict_of_answers:
-            Answer.objects.create(answer_text=answer, question=question)
+        question = Question.objects.create(
+            test=test,
+            question_text=self.cleaned_data['question'],
+            correct_answer=self.cleaned_data['current_answer']
+        )
 
-        test.question.add(question)
+        for answer in dict_of_answers:
+            Answer.objects.create(question=question, answer_text=answer)
 
         return test
 
@@ -167,8 +168,8 @@ class AddCommentForm(forms.ModelForm):
 
     def save(self, *args, **kwargs):
 
-        user = kwargs.pop('user')
-        test = kwargs.pop('test')
+        user = kwargs.get('user')
+        test = kwargs.get('test')
 
         comment = super().save(commit=False)
 

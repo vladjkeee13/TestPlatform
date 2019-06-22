@@ -1,0 +1,86 @@
+[
+{
+    "model": "tests.myuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$lTFe065WXD4t$btrFrs1J2BaWStKN+Fy+MPx6jOV8NHUUHwxsshjpmdI=",
+        "last_login": "2019-05-13T18:43:12.777Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Admin",
+        "last_name": "Admin",
+        "email": "admin@example.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-04-15T19:14:32Z",
+        "avatar": "avatars/1513445269.jpg",
+        "date_of_birth": "1997-09-09",
+        "personal_information": "I'm an admin!",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tests.myuser",
+    "pk": 29,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$dme67zJb2M1D$aEB04RpY/KjZeJc92XdGgr8hW1vOsX7kPCqoVDBvkwg=",
+        "last_login": "2019-05-13T18:26:27.830Z",
+        "is_superuser": false,
+        "username": "vladjkeee13",
+        "first_name": "Vlad",
+        "last_name": "Ulyanich",
+        "email": "vladjkeee13@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-04-17T16:25:44.994Z",
+        "avatar": "avatars/user_vbk7NSN.png",
+        "date_of_birth": "1997-08-13",
+        "personal_information": "Some information",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tests.myuser",
+    "pk": 30,
+    "fields": {
+        "password": "!rJqCRlJpOMBtWRxU6KZdMAQMbEls2ij47QPBwOAb",
+        "last_login": "2019-04-17T16:29:05.895Z",
+        "is_superuser": false,
+        "username": "vladjkeee134a82aa82b4324468",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-04-17T16:29:05.540Z",
+        "avatar": "",
+        "date_of_birth": null,
+        "personal_information": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tests.myuser",
+    "pk": 31,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$ClNwbNLyDrVX$oNcCVLxNOxbSKZ4Uj5+MU65eeagowUx0ciy8cFtIWVA=",
+        "last_login": "2019-04-18T17:07:38.462Z",
+        "is_superuser": false,
+        "username": "admin123",
+        "first_name": "dasd",
+        "last_name": "asdasd",
+        "email": "vladjkeee13@mail.tu",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-04-18T17:07:37.968Z",
+        "avatar": "",
+        "date_of_birth": "2018-11-28",
+        "personal_information": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

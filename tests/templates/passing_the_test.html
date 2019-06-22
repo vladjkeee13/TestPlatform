@@ -15,23 +15,50 @@
 {% block content %}
 
     <p class="test-name"> Тест: {{ test }} </p>
-
+    {% if paginator.count != 0 %}
+        <h3 class="text-center text-success"> Вопрос {{ page_obj.number }} из {{ paginator.count }} </h3>
+    {% else %}
+        <h3 class="text-center text-success"> Вопрос {{ paginator.count }} из {{ paginator.count }} </h3>
+    {% endif %}
     <div class="question">
-        {% for question in questions %}
-            <h3 style="display: inline"> Вопрос {{ forloop.counter }}: {{ question }} </h3>
-            <br>
 
-            <form action="{% url 'tests:result' test_title=test.title %}" method="post"> {% csrf_token %}
-                {% for answer in question.answer_set.all %}
-                        <input type="radio" name="chosen_answer{{ question.id }}" checked value="{{ answer.id }}"/>
-                    <label> {{ answer.answer_text }} </label>
-                    <br>
-                    <br>
-                {% endfor %}
-        {% endfor %}
+        {% for question in object_list %}
+
+            <div class="text-center">
+                <h3 style="display: inline"> {{ question }} </h3>
                 <br>
-                <input type="submit" class="btn btn-md btn-success" value="Ответить">
+                <br>
+            </div>
+            {% if page_obj.number == paginator.count %}
+                <form action="{% url 'tests:result' test_title=test.title %}" method="get">
+            {% else %}
+                <form action="" method="get">
+            {% endif %}
+                {% if page_obj.has_next %}
+                    <input type="hidden" name="page" value="{{ page_obj.next_page_number }}">
+                {% endif %}
+
+                <div style="margin-left: 600px">
+                    {% for answer in question.answer_set.all %}
+                        <input required type="radio" name="answer_id" value="{{ answer.id }}">
+                        <label> {{ answer.answer_text }} </label>
+                        <br>
+                        <br>
+                    {% endfor %}
+                </div>
+
+        {% endfor %}
+
+                <div class="text-center">
+{#                    {% if  %}#}
+                        <input type="submit" class="btn btn-md btn-success" value="Ответить">
+{#                    {% elif %}#}
+
+{#                    {% endif %}#}
+                </div>
+
             </form>
     </div>
     <br>
+
 {% endblock content %}

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+        <div class="conteiner-fluid">
+            <div class="navbar-header">
+                <a href="{% url 'tests:home-page' %}" class="navbar-brand"> TestPlatform </a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+
+                    {% if not request.user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'registration' %}"> Registration </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'my-account' %}"> My account({{ request.user }})</a>
+                        </li>
+                    {% endif %}
+
+                    {% if request.user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}"> Logout </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}"> Login </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>

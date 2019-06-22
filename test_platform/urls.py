@@ -25,6 +25,7 @@ from tests.views import LoginView, MyAccountView, RegistrationView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('tests.urls', 'tests'), namespace='tests')),
+    path('nested_admin/', include('nested_admin.urls')),
     path('registration/', RegistrationView.as_view(), name='registration'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('tests:home-page')), name='logout'),

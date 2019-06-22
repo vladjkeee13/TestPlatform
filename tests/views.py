@@ -1,7 +1,9 @@
 from django.contrib.auth import login, authenticate
-from django.core.paginator import Paginator
-from django.shortcuts import redirect
-from django.views.generic import TemplateView, ListView, FormView
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, get_object_or_404
+from django.urls import reverse
+from django.utils.decorators import method_decorator
+from django.views.generic import TemplateView, ListView, FormView, CreateView, DetailView
 
 from tests.forms import SearchForm, AddTestForm, AddQuestionForm, AddCommentForm, RegistrationForm, LoginForm
 from tests.models import Test, Answer, Question, Result, MyUser
@@ -17,23 +19,31 @@ class HomeView(ListView):
         context = super().get_context_data(**kwargs)
 
         if self.request.GET:
-            context['form'] = SearchForm(data=self.request.GET)
-            if context['form'].is_valid():
-                context['object_list'] = context['form'].get_searched_queryset(context['object_list'], user=self.request.user)
+            form = SearchForm(data=self.request.GET)
+            if form.is_valid():
+                context['object_list'] = form.get_searched_queryset(context['object_list'], user=self.request.user)
+            context['form'] = form
         else:
             context['form'] = SearchForm()
 
         return context
 
 
-class TestView(TemplateView):
+class TestView(DetailView):
 
     template_name = 'test.html'
+    model = Test
+
+    def get_object(self, queryset=None):
+
+        title = self.kwargs.get('test_title')
+        return get_object_or_404(self.model, title=title)
 
     def get_context_data(self, **kwargs):
 
         context = super().get_context_data(**kwargs)
-        test = Test.objects.get(title=self.kwargs['test_title'])
+        test = self.get_object()
+        context['test'] = test
 
         try:
             result = Result.objects.get(test=test, author=self.request.user)
@@ -42,87 +52,87 @@ class TestView(TemplateView):
                 return mark * 100 / total
 
             context['result'] = result
-            context['percent'] = percent(result.mark, result.test.question.count())
+            context['percent'] = percent(result.mark, result.test.question_set.count())
         except:
-            'result not found'
-
-        context['test'] = test
+            pass
 
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class PassingTheTestView(ListView):
 
     template_name = 'passing_the_test.html'
     model = Question
+    paginate_by = 1
 
     def get_context_data(self, **kwargs):
 
         context = super().get_context_data(**kwargs)
         test = Test.objects.get(title=self.kwargs['test_title'])
-        questions = Question.objects.filter(test=test)
-        context['questions'] = questions
         context['test'] = test
+
+        if 'answer_id' in self.request.GET:
+            result, created = Result.objects.get_or_create(test=test, author=self.request.user)
+            result.answer.add(Answer.objects.get(id=self.request.GET['answer_id']))
 
         return context
 
+    def get_queryset(self):
 
+        test = Test.objects.get(title=self.kwargs['test_title'])
+        queryset = Question.objects.filter(test=test)
+
+        return queryset
+
+
+@method_decorator(login_required, name='dispatch')
 class ResultView(TemplateView):
 
     template_name = 'result.html'
 
-    def post(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
 
-        answer_id_list = list(self.request.POST.values())[1:]
-        test_title = self.kwargs['test_title']
-        test = Test.objects.get(title=test_title)
+        context = super().get_context_data(**kwargs)
+        test = Test.objects.get(title=self.kwargs['test_title'])
+        context['test'] = test
 
-        selected_answers = []
-        correct_answers = []
+        result, created = Result.objects.get_or_create(test=test, author=self.request.user)
+        result.answer.add(Answer.objects.get(id=self.request.GET['answer_id']))
 
-        result = 0
+        context['result'] = result
 
-        for answer_id in answer_id_list:
-            answer = (Answer.objects.get(id=answer_id))
-            selected_answers.append(answer.answer_text)
-            correct_answers.append(answer.question.correct_answer)
-
-        both_answers = list(zip(selected_answers, correct_answers))
-
-        for elem in both_answers:
-            if str(elem[0]) == str(elem[1]):
-                result += 1
+        if not result.mark:
+            for answer in result.answer.all():
+                if answer.answer_text == Question.objects.get(answer=answer).correct_answer:
+                    result.mark += 1
+                    result.save()
 
         def percent(mark, total):
             total = len(total)
             return mark*100/total
 
-        Result.objects.create(test=test, author=self.request.user, mark=result)
+        context['percent'] = round(percent(result.mark, result.answer.all()), 2)
+        context['total'] = result.answer.count()
 
-        test.number_of_passes = test.number_of_passes + 1
-        test.save()
-        context = {
-            'result': result,
-            'total': len(answer_id_list),
-            'percent': percent(result, correct_answers),
-            'test': test
-        }
-
-        return super(TemplateView, self).render_to_response(context)
+        return context
 
 
-class AddTestView(FormView):
+@method_decorator(login_required, name='dispatch')
+class AddTestView(CreateView):
 
     template_name = 'add_test.html'
     form_class = AddTestForm
 
     def form_valid(self, form):
 
-        form.save(user=self.request.user)
+        response = super().form_valid(form)
+        self.object = form.save(user=self.request.user)
 
-        return redirect('tests:add-question', test_name=self.request.POST['title'])
+        return response
 
 
+@method_decorator(login_required, name='dispatch')
 class AddQuestionView(FormView):
 
     template_name = 'add_question.html'
@@ -146,11 +156,13 @@ class AddQuestionView(FormView):
     def form_valid(self, form):
 
         context = self.get_context_data()
-        form.save(test=context.get('test'))
-        if context.get('test').question.all().count() > 4:
-            return redirect('tests:test-added', test_name=self.kwargs['test_name'])
-        else:
+        test = context.get('test')
+        form.save(test=test)
+
+        if 'test-end' not in self.request.POST:
             return redirect('tests:add-question', test_name=self.kwargs['test_name'])
+        else:
+            return redirect('tests:test-added', test_name=self.kwargs['test_name'])
 
     def form_invalid(self, form, **kwargs):
 
@@ -163,6 +175,7 @@ class AddQuestionView(FormView):
         return self.render_to_response(context)
 
 
+@method_decorator(login_required, name='dispatch')
 class TestAddedView(TemplateView):
 
     template_name = 'test_added.html'
@@ -178,17 +191,22 @@ class TestAddedView(TemplateView):
         return context
 
 
-class AddCommentView(FormView):
+@method_decorator(login_required, name='dispatch')
+class AddCommentView(CreateView):
 
     template_name = 'add_comment.html'
     form_class = AddCommentForm
 
     def form_valid(self, form):
 
+        response = super().form_valid(form)
         test = Test.objects.get(title=self.kwargs['test_name'])
-        form.save(user=self.request.user, test=test)
+        self.object = form.save(user=self.request.user, test=test)
 
-        return redirect('tests:test', test_title=self.kwargs['test_name'])
+        return response
+
+    def get_success_url(self):
+        return reverse('tests:test', kwargs={'test_title': self.kwargs.get('test_name')})
 
 
 class RegistrationView(FormView):
@@ -226,6 +244,7 @@ class LoginView(FormView):
         return redirect('/')
 
 
+@method_decorator(login_required, name='dispatch')
 class MyAccountView(TemplateView):
 
     template_name = 'my_account.html'
