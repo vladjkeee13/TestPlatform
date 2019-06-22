@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="044b1728-7585-4fcd-adfa-d2fc9d03c1b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_platform/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_platform/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_platform/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_platform/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/migrations/0002_auto_20190415_1923.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/static/tests/css/passing_the_test_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/tests/static/tests/css/passing_the_test_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/add_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/add_question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/home_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/my_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/my_account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/passing_the_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/passing_the_test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,14 +29,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="58">
               <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -152,6 +142,7 @@
         <option value="$PROJECT_DIR$/tests/templates/home_page.html" />
         <option value="$PROJECT_DIR$/tests/templates/test.html" />
         <option value="$PROJECT_DIR$/tests/views.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -167,28 +158,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="test_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_platform" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -306,12 +276,12 @@
       <workItem from="1560959756963" duration="533000" />
       <workItem from="1560963791913" duration="2467000" />
       <workItem from="1561027081653" duration="1131000" />
-      <workItem from="1561213291947" duration="9934000" />
+      <workItem from="1561213291947" duration="10264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="489093000" />
+    <option name="totallyTimeSpent" value="489423000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,13 +294,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.31683958" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.26547232" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.048859935" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32954547" />
@@ -420,9 +389,6 @@
           <caret line="21" column="69" selection-start-line="21" selection-end-line="22" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/static/tests/css/add_test_style.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -667,11 +633,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="58">
           <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
