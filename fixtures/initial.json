@@ -1,0 +1,470 @@
+[
+{
+  "model": "tests.question",
+  "pk": 1,
+  "fields": {
+    "test": 1,
+    "question_text": "\u0421\u043a\u043e\u043b\u044c\u043a\u043e \u043f\u043b\u0430\u043d\u0435\u0442 \u0432 \u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0439 \u0441\u0438\u0441\u0442\u0435\u043c\u0435?",
+    "correct_answer": "9"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 2,
+  "fields": {
+    "test": 1,
+    "question_text": "\u041a\u0430\u043a\u043e\u0439 \u043f\u043e \u0441\u0447\u0451\u0442\u0443 \u043e\u0442 \u0421\u043e\u043b\u043d\u0446\u0430 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0417\u0435\u043c\u043b\u044f?",
+    "correct_answer": "3"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 3,
+  "fields": {
+    "test": 1,
+    "question_text": "\u0412 \u043a\u0430\u043a\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0435 \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u0446\u0435\u043d\u0442\u0440 \u0415\u0432\u0440\u043e\u043f\u044b?",
+    "correct_answer": "\u0412 \u0423\u043a\u0440\u0430\u0438\u043d\u0435"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 4,
+  "fields": {
+    "test": 1,
+    "question_text": "\u0421\u043a\u043e\u043b\u044c\u043a\u043e \u0437\u0432\u0451\u0437\u0434 \u043d\u0430 \u0444\u043b\u0430\u0433\u0435 \u0421\u0428\u0410?",
+    "correct_answer": "50"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 5,
+  "fields": {
+    "test": 1,
+    "question_text": "\u0421\u043a\u043e\u043b\u044c\u043a\u043e \u043c\u0430\u0442\u0435\u0440\u0438\u043a\u043e\u0432 \u043d\u0430 \u043f\u043b\u0430\u043d\u0435\u0442\u0435 \u0417\u0435\u043c\u043b\u044f?",
+    "correct_answer": "6"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 6,
+  "fields": {
+    "test": 2,
+    "question_text": "\u0412 \u043a\u0430\u043a\u043e\u043c \u0433\u043e\u0434\u0443 \u043d\u0430\u0447\u0430\u043b\u0430\u0441\u044c \u041f\u0435\u0440\u0432\u0430\u044f \u041c\u0438\u0440\u043e\u0432\u0430\u044f \u0432\u043e\u0439\u043d\u0430?",
+    "correct_answer": "1914"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 7,
+  "fields": {
+    "test": 2,
+    "question_text": "\u041a\u0442\u043e \u0438\u0437\u043e\u0431\u0440\u0451\u043b \u043f\u0435\u0440\u0438\u043e\u0434\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0442\u0430\u0431\u043b\u0438\u0446\u0443 \u0445\u0438\u043c\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u043e\u0432?",
+    "correct_answer": "\u041c\u0435\u043d\u0434\u0435\u043b\u0435\u0435\u0432"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 8,
+  "fields": {
+    "test": 2,
+    "question_text": "\u0421\u0430\u043c\u0430\u044f \u0434\u043b\u0438\u043d\u043d\u0430\u044f \u0440\u0435\u043a\u0430 \u043d\u0430 \u0417\u0435\u043c\u043b\u0435?",
+    "correct_answer": "\u041d\u0438\u043b"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 9,
+  "fields": {
+    "test": 2,
+    "question_text": "\u0421\u043a\u043e\u043b\u044c\u043a\u043e \u0437\u0443\u0431\u043e\u0432 \u0443 \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0430?",
+    "correct_answer": "32"
+  }
+},
+{
+  "model": "tests.question",
+  "pk": 10,
+  "fields": {
+    "test": 2,
+    "question_text": "\u041a\u0442\u043e \u043d\u0430\u043f\u0438\u0441\u0430\u043b \u00ab\u041c\u0430\u0441\u0442\u0435\u0440\u0430 \u0438 \u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0443\u00bb?",
+    "correct_answer": "\u0411\u0443\u043b\u0433\u0430\u043a\u043e\u0432"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 1,
+  "fields": {
+    "question": 1,
+    "answer_text": "3"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 2,
+  "fields": {
+    "question": 1,
+    "answer_text": "4"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 3,
+  "fields": {
+    "question": 1,
+    "answer_text": "9"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 4,
+  "fields": {
+    "question": 1,
+    "answer_text": "12"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "answer_text": "2"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 6,
+  "fields": {
+    "question": 2,
+    "answer_text": "3"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 7,
+  "fields": {
+    "question": 2,
+    "answer_text": "4"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 8,
+  "fields": {
+    "question": 2,
+    "answer_text": "1"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 9,
+  "fields": {
+    "question": 3,
+    "answer_text": "\u0412 \u0423\u043a\u0440\u0430\u0438\u043d\u0435"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 10,
+  "fields": {
+    "question": 3,
+    "answer_text": "\u0412 \u041f\u043e\u043b\u044c\u0448\u0435"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 11,
+  "fields": {
+    "question": 3,
+    "answer_text": "\u0412 \u0418\u0442\u0430\u043b\u0438\u0438"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 12,
+  "fields": {
+    "question": 3,
+    "answer_text": "\u0412 \u0410\u0432\u0441\u0442\u0440\u0438\u0438"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 13,
+  "fields": {
+    "question": 4,
+    "answer_text": "40"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 14,
+  "fields": {
+    "question": 4,
+    "answer_text": "50"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 15,
+  "fields": {
+    "question": 4,
+    "answer_text": "55"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 16,
+  "fields": {
+    "question": 4,
+    "answer_text": "60"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 17,
+  "fields": {
+    "question": 5,
+    "answer_text": "5"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 18,
+  "fields": {
+    "question": 5,
+    "answer_text": "4"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 19,
+  "fields": {
+    "question": 5,
+    "answer_text": "7"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 20,
+  "fields": {
+    "question": 5,
+    "answer_text": "6"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 21,
+  "fields": {
+    "question": 6,
+    "answer_text": "1913"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 22,
+  "fields": {
+    "question": 6,
+    "answer_text": "1914"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 23,
+  "fields": {
+    "question": 6,
+    "answer_text": "1915"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 24,
+  "fields": {
+    "question": 6,
+    "answer_text": "1916"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 25,
+  "fields": {
+    "question": 7,
+    "answer_text": "\u041c\u0435\u043d\u0434\u0435\u043b\u0435\u0435\u0432"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 26,
+  "fields": {
+    "question": 7,
+    "answer_text": "\u0422\u0435\u0441\u043b\u0430"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 27,
+  "fields": {
+    "question": 7,
+    "answer_text": "\u0410\u0440\u0438\u0441\u0442\u043e\u0442\u0435\u043b\u044c"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 28,
+  "fields": {
+    "question": 7,
+    "answer_text": "\u0410\u0440\u0445\u0438\u043c\u0435\u0434"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 29,
+  "fields": {
+    "question": 8,
+    "answer_text": "\u0412\u043e\u043b\u0433\u0430"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 30,
+  "fields": {
+    "question": 8,
+    "answer_text": "\u041d\u0438\u043b"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 31,
+  "fields": {
+    "question": 8,
+    "answer_text": "\u041c\u0438\u0441\u0438\u0441\u0438\u043f\u0438"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 32,
+  "fields": {
+    "question": 8,
+    "answer_text": "\u0410\u043c\u0430\u0437\u043e\u043d\u043a\u0430"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 33,
+  "fields": {
+    "question": 9,
+    "answer_text": "35"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 34,
+  "fields": {
+    "question": 9,
+    "answer_text": "33"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 35,
+  "fields": {
+    "question": 9,
+    "answer_text": "32"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 36,
+  "fields": {
+    "question": 9,
+    "answer_text": "39"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 37,
+  "fields": {
+    "question": 10,
+    "answer_text": "\u0427\u0435\u0445\u043e\u0432"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 38,
+  "fields": {
+    "question": 10,
+    "answer_text": "\u0414\u043e\u0441\u0442\u043e\u0435\u0432\u0441\u043a\u0438\u0439"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 39,
+  "fields": {
+    "question": 10,
+    "answer_text": "\u0413\u043e\u0433\u043e\u043b\u044c"
+  }
+},
+{
+  "model": "tests.answer",
+  "pk": 40,
+  "fields": {
+    "question": 10,
+    "answer_text": "\u0411\u0443\u043b\u0433\u0430\u043a\u043e\u0432"
+  }
+},
+{
+  "model": "tests.myuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$TJQQCJ5vUzId$K9J9kEIpBQu6eRFLAt77ZuixyMwRsQrcjMnYw4Iraew=",
+    "last_login": "2019-06-22T16:41:33.533Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-06-22T16:41:13.733Z",
+    "avatar": "",
+    "date_of_birth": null,
+    "personal_information": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "tests.result",
+  "pk": 1,
+  "fields": {
+    "test": 1,
+    "author": 1,
+    "mark": 5,
+    "date": "2019-06-22T19:02:12.571Z",
+    "answer": [
+      3,
+      6,
+      9,
+      14,
+      20
+    ]
+  }
+},
+{
+  "model": "tests.test",
+  "pk": 1,
+  "fields": {
+    "title": "Test1",
+    "author": 1,
+    "description": "\u0412\u043e\u043f\u0440\u043e\u0441\u044b \u043f\u043e \u0448\u043a\u043e\u043b\u044c\u043d\u043e\u0439 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435",
+    "date": "2019-06-22T19:01:52.970Z"
+  }
+},
+{
+  "model": "tests.test",
+  "pk": 2,
+  "fields": {
+    "title": "Test2",
+    "author": 1,
+    "description": "\u0412\u043e\u043f\u0440\u043e\u0441\u044b \u043f\u043e \u0448\u043a\u043e\u043b\u044c\u043d\u043e\u0439 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435 2",
+    "date": "2019-06-22T19:52:28.430Z"
+  }
+}
+]
