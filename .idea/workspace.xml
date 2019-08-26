@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="044b1728-7585-4fcd-adfa-d2fc9d03c1b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/vladjkeee13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_platform/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_platform/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_platform/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_platform/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/templates/passing_the_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/passing_the_test.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +201,8 @@
       <workItem from="1566572947344" duration="4759000" />
       <workItem from="1566628764496" duration="1232000" />
       <workItem from="1566769987490" duration="5397000" />
-      <workItem from="1566806515739" duration="27552000" />
+      <workItem from="1566806515739" duration="27902000" />
+      <workItem from="1566855463058" duration="271000" />
     </task>
     <servers />
   </component>
