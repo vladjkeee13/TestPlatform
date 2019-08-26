@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.utils.decorators import method_decorator
@@ -119,6 +120,7 @@ class ResultView(TemplateView):
 
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(staff_member_required, name='dispatch')
 class AddTestView(CreateView):
 
     template_name = 'add_test.html'

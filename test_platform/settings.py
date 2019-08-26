@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'test_platform.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-DOCKER = True
+DOCKER = False
 
 if DOCKER:
     DATABASES = {
