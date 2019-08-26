@@ -138,7 +138,7 @@ class AddQuestionForm(forms.Form):
 
     def save(self, test):
 
-        dict_of_answers = [
+        list_of_answers = [
             self.cleaned_data['answer1'],
             self.cleaned_data['answer2'],
             self.cleaned_data['answer3'],
@@ -151,7 +151,7 @@ class AddQuestionForm(forms.Form):
             correct_answer=self.cleaned_data['current_answer']
         )
 
-        for answer in dict_of_answers:
+        for answer in list_of_answers:
             Answer.objects.create(question=question, answer_text=answer)
 
         return test

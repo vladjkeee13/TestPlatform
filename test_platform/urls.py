@@ -19,8 +19,13 @@ from django.urls import path, include, reverse_lazy
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework.routers import DefaultRouter
 
+from api.views import APITest
 from tests.views import LoginView, MyAccountView, RegistrationView
+
+router = DefaultRouter()
+router.register('tests', APITest)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +35,8 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('tests:home-page')), name='logout'),
     path('my-account/', MyAccountView.as_view(), name='my-account'),
-    path('oauth/', include('social_django.urls', namespace='social'))
+    path('oauth/', include('social_django.urls', namespace='social')),
+    path('api/', include(router.urls)),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
