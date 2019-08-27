@@ -21,11 +21,11 @@
                     <form accept-charset="UTF-8" class='form-inline' role="form" method="get">
                     <fieldset>
                         <div class="form-group col-md-2">
-                            <label for="test_title"> Поиск по имени </label>
+                            <label for="test_title"> Search by name </label>
                             <input type="text" class="form-control" name="title" id="test_title" placeholder="Title" value="{{ form.title.value|default_if_none:'' }}">
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="id_date">Сортировать по дате:</label>
+                            <label for="id_date">Sort by date:</label>
                             <select class="form-control" name="date" id="sel">
                                 {% for value, key in form.fields.date.choices %}
                                     <option value="{{ value }}"
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="id_passed">Сортировать по пройденным:</label>
+                            <label for="id_passed"> Sort by passed: </label>
                             <select class="form-control" name="passed" id="sel1">
                                 {% for value, key in form.fields.passed.choices %}
                                     <option value="{{ value }}"
@@ -52,8 +52,8 @@
                             </select>
                         </div>
                     <div class="form-group buttons">
-                        <input class="btn btn-md btn-primary" type="submit" value="Отфильтровать">
-                        <a class="btn btn-md btn-info" href="/"> Очистить </a><br>
+                        <input class="btn btn-md btn-primary" type="submit" value="Search">
+                        <a class="btn btn-md btn-info" href="/"> Clear </a><br>
                     </div>
                     </fieldset>
                     </form>
@@ -63,7 +63,7 @@
 
     {% if object_list %}
 
-        <h2 class="text-center text-primary"> Выберите тест: </h2>
+        <h2 class="text-center text-primary"> Choose a test: </h2>
 
         <div class="container-fluid">
             <div class="raw">
@@ -78,40 +78,40 @@
                     </ul>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_staff %}
-                            <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Добавить тест </a><br>
+                            <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Add a test </a><br>
                         {% else %}
                             <div class="col-md-10 col-md-offset-2">
-                                <h4> Недостаточно прав для создания нового теста! </h4>
+                                <h4> You don't have enough rights to create a new test! </h4>
                             </div>
                         {% endif %}
                     {% else %}
-                        Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                        <a href="{% url 'login' %}"> Log in </a> or <a href="{% url 'registration' %}"> sign up </a> to create a new test!
                     {% endif %}
                 </div>
             </div>
         </div>
 
     {% elif not object_list and form.title.value %}
-        <h2 class="text-center text-danger"> Теста с таким именем нет! </h2>
+        <h2 class="text-center text-danger"> No test with this name </h2>
     {% else %}
 
-        <h2 class="text-center text-danger"> Ни один тест еще не был создан! </h2>
+        <h2 class="text-center text-danger"> No tests have been created yet! </h2>
 
         <div class="container-fluid">
             <div class="raw">
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_staff %}
                         <div class="col-md-6 col-md-offset-5">
-                            <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Добавить тест </a><br>
+                            <a class="btn btn-lg btn-primary" href="{% url 'tests:add-test' %}"> Add a test </a><br>
                         </div>
                     {% else %}
                         <div class="col-md-10 col-md-offset-2">
-                            <h4> Недостаточно прав для создания нового теста! </h4>
+                            <h4> You don't have enough rights to create a new test! </h4>
                         </div>
                     {% endif %}
                 {% else %}
                     <div class="col-md-6 col-md-offset-4">
-                        Чтобы добавить новый тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                        <a href="{% url 'login' %}"> Log in </a> or <a href="{% url 'registration' %}"> sign up </a> to create a new test!
                     </div>
                 {% endif %}
             </div>

@@ -16,7 +16,7 @@
 
 {% block content %}
 
-    <h3 class="text-center text-success"> Вопрос №{{ test.question_set.all|length|add:1 }} </h3>
+    <h3 class="text-center text-success"> Question №{{ test.question_set.all|length|add:1 }} </h3>
 
 
         {% if check_all_answers_and_correct_answer_and_question %}
@@ -72,10 +72,10 @@
             </div>
 
             {% if not test.question_set.all.count > 3 %}
-                <input type="submit" class="btn btn-md btn-success btn-block" name="add-question" value="Добавить вопрос"/>
+                <input type="submit" class="btn btn-md btn-success btn-block" name="add-question" value="Add a question"/>
             {% else %}
-                <input type="submit" class="btn btn-md btn-success btn-block" name="add-question" value="Добавить вопрос"/>
-                <input type="submit" class="btn btn-md btn-success btn-block" name="test-end" value="Добавить тест"/>
+                <input type="submit" class="btn btn-md btn-success btn-block" name="add-question" value="Add a question"/>
+                <input type="submit" class="btn btn-md btn-success btn-block" name="test-end" value="Add test"/>
             {% endif %}
 
         </form>

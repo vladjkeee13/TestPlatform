@@ -14,11 +14,11 @@
 
 {% block content %}
 
-    <p class="test-name"> Тест: {{ test }} </p>
+    <p class="test-name"> Test: {{ test }} </p>
     {% if paginator.count != 0 %}
-        <h3 class="text-center text-success"> Вопрос {{ page_obj.number }} из {{ paginator.count }} </h3>
+        <h3 class="text-center text-success"> Question {{ page_obj.number }}/{{ paginator.count }} </h3>
     {% else %}
-        <h3 class="text-center text-success"> Вопрос {{ paginator.count }} из {{ paginator.count }} </h3>
+        <h3 class="text-center text-success"> Question {{ paginator.count }}/{{ paginator.count }} </h3>
     {% endif %}
     <div class="question">
 

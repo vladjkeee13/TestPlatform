@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="044b1728-7585-4fcd-adfa-d2fc9d03c1b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_platform/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_platform/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/add_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/add_comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/add_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/add_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/add_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/add_test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/home_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/my_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/my_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/passing_the_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/passing_the_test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/templates/test_added.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/templates/test_added.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +212,8 @@
       <workItem from="1566769987490" duration="5397000" />
       <workItem from="1566806515739" duration="27902000" />
       <workItem from="1566855463058" duration="945000" />
-      <workItem from="1566856650835" duration="1414000" />
+      <workItem from="1566856650835" duration="1690000" />
+      <workItem from="1566889795200" duration="2327000" />
     </task>
     <servers />
   </component>

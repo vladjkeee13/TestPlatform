@@ -25,7 +25,7 @@
             {% if user.avatar %}
                 <td colspan="2" style="text-align: center"> <img class="img" src="/media/{{ user.avatar }}" alt="Img3"> </td>
             {% else %}
-                <td colspan="2"> Вы не выбрали фотографию.. </td>
+                <td colspan="2"> You haven't selected a photo.. </td>
             {% endif %}
         </tr>
         <tr style="margin-left: 50px">
@@ -43,7 +43,7 @@
             {% if user.personal_information %}
                 <td colspan="2" rowspan="3"> {{ user.personal_information }} </td>
             {% else %}
-                <td colspan="2"> Вы не указали личную информацию.. </td>
+                <td colspan="2"> You did not provide personal information.. </td>
             {% endif %}
         </tr>
     </table>

@@ -19,7 +19,7 @@
 
     <table class="table">
         <tr class="text-center">
-            <td colspan="2"> <h2> Тест: {{ test }} </h2> </td>
+            <td colspan="2"> <h2> Test: {{ test }} </h2> </td>
         </tr>
         <tr class="text-center">
             <td colspan="2"> <h2> {{ test.description }} </h2> </td>
@@ -27,27 +27,27 @@
         <tr class="text-center">
             {% if test.result_set.all.count > 0 %}
                 {% if not test.result_set.all.count|in_list:'2, 3, 4, 22, 23, 24'  %}
-                    <td colspan="2"> <h2> Данный тест был пройдет уже {{ test.result_set.all.count }} раз.</h2> </td>
+                    <td colspan="2"> <h2> This test has already passed {{ test.result_set.all.count }} time.</h2> </td>
                 {% else %}
-                    <td colspan="2"> <h2> Данный тест был пройдет уже {{ test.result_set.all.count }} раза.</h2> </td>
+                    <td colspan="2"> <h2> This test has already passed {{ test.result_set.all.count }} times.</h2> </td>
                 {% endif %}
             {% else %}
-                <td colspan="2"> <h2> Данный тест еще не проходили, Вы будете первым! :) </h2> </td>
+                <td colspan="2"> <h2> This test hasn't passed yet, you will be the first! :) </h2> </td>
             {% endif %}
         </tr>
         <tr class="text-center">
             {% if result %}
                 {% if result.test == test and result.author == user %}
-                    <td> <h3 class="message"> Вы уже проходили этот тест!</h3> </td>
-                    <td> <h3 class="result"> Ваш результат: {{ result.mark }}/{{ result.test.question_set.all|length }} = {{ percent }}% </h3> </td>
+                    <td> <h3 class="message"> You have already passed it! </h3> </td>
+                    <td> <h3 class="result"> Your result: {{ result.mark }}/{{ result.test.question_set.all|length }} = {{ percent }}% </h3> </td>
                 {% else %}
                     {% if request.user.is_authenticated %}
                         <td colspan="2">
-                            <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
+                            <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Pass the test </a>
                         </td>
                     {% else %}
                         <td colspan="2">
-                            Чтобы пройти тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                            <a href="{% url 'login' %}"> Log in </a> or <a href="{% url 'registration' %}"> sign up </a> to pass the test!
                         </td>
                     {% endif %}
 
@@ -55,11 +55,11 @@
             {% else %}
                 {% if request.user.is_authenticated %}
                     <td colspan="2">
-                        <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Пройти тест </a>
+                        <a href="{% url 'tests:passing-the-test' test_title=test.title %}" class="btn btn-info" role="button" aria-pressed="true"> Pass the test </a>
                     </td>
                 {% else %}
                     <td colspan="2">
-                        Чтобы пройти тест, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                        <a href="{% url 'login' %}"> Log in </a> or <a href="{% url 'registration' %}"> sign up </a> to pass the test!
                     </td>
                 {% endif %}
             {% endif %}
@@ -100,18 +100,18 @@
             </div><!-- /container -->
         {% endfor %}
         {% if request.user.is_authenticated %}
-            <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+            <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link btn btn-primary btn-md active" role="button" aria-pressed="true"> Add a comment </a>
         {% else %}
             <div class="col-md-5 col-md-offset-1">
-                Чтобы добавить комментарий, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+                <a href="{% url 'login' %}"> Log in </a> or <a href="{% url 'registration' %}"> sign up </a> to leave a comment!
             </div>
         {% endif %}
     {% else %}
-        <h4> У данного теста еще нет комментариев! </h4>
+        <h4> This test hasn't had comments yet. </h4>
         {% if request.user.is_authenticated %}
-            <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link1 btn btn-primary btn-md active" role="button" aria-pressed="true"> Добавить комментарий </a>
+            <a href="{% url 'tests:add-comment' test_name=test.title %}" class="link1 btn btn-primary btn-md active" role="button" aria-pressed="true"> Add a comment </a>
         {% else %}
-            Чтобы добавить комментарий, <a href="{% url 'login' %}"> авторизуйтесь </a> или <a href="{% url 'registration' %}"> зарегистрируйтесь </a>!
+            <a href="{% url 'login' %}"> Log in </a> or <a href="{% url 'registration' %}"> sign up </a> to leave a comment!
         {% endif %}
     {% endif %}
 
