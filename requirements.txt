@@ -4,7 +4,7 @@ defusedxml==0.6.0rc1
 Django==2.2.4
 django-cors-headers==3.0.2
 django-nested-admin==3.2.3
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 idna==2.8
 oauthlib==3.0.1
 Pillow==6.0.0
